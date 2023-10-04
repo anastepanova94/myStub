@@ -10,9 +10,17 @@ import java.time.LocalDateTime;
 @Getter
 @Setter
 @NoArgsConstructor
-@ToString
-public class Cred {
+public class User {
     private String login;
     private String password;
     private LocalDateTime dateTime;
+
+    @Override
+    public String toString() {
+        return "{" +
+                "login='" + login + '\'' +
+                ", password='" + password + '\'' +
+                ", dateTime=" + dateTime +
+                '}';
+    }
 }

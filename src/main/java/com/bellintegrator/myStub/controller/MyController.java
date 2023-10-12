@@ -3,6 +3,7 @@ package com.bellintegrator.myStub.controller;
 import com.bellintegrator.myStub.model.User;
 import com.bellintegrator.myStub.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 
 import org.springframework.http.ResponseEntity;
@@ -11,10 +12,10 @@ import org.springframework.web.bind.annotation.*;
 import java.sql.SQLException;
 
 @RestController
-@RequestMapping("/user")
 @RequiredArgsConstructor
+@RequestMapping("/user")
 public class MyController {
-    private UserRepository userRepository;
+    private final UserRepository userRepository;
 
     @GetMapping
     public ResponseEntity<?> getMessage(@RequestParam String login) throws SQLException {

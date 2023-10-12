@@ -1,9 +1,11 @@
 package com.bellintegrator.myStub.repository;
 import com.bellintegrator.myStub.model.User;
+import org.springframework.stereotype.Repository;
 
 import java.sql.*;
 import java.time.LocalDate;
 
+@Repository
 public class UserRepository {
 
     private String jdbcurl = "jdbc:postgresql://127.0.0.1:5432/users";

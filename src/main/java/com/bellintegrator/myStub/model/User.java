@@ -3,24 +3,36 @@ package com.bellintegrator.myStub.model;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import lombok.ToString;
 
-import java.time.LocalDateTime;
+import java.time.LocalDate;
 
 @Getter
 @Setter
 @NoArgsConstructor
 public class User {
+
     private String login;
     private String password;
-    private LocalDateTime dateTime;
+    private String email;
+    private LocalDate date = LocalDate.now();
+
+    public User(String login) {
+        this.login = login;
+    }
+
+    public User(String login, String password, String email) {
+        this.login = login;
+        this.password = password;
+        this.email = email;
+
+    }
 
     @Override
     public String toString() {
-        return "{" +
-                "login='" + login + '\'' +
+        return "login='" + login + '\'' +
                 ", password='" + password + '\'' +
-                ", dateTime=" + dateTime +
-                '}';
+                ", email='" + email + '\'' +
+                ", date=" + date;
     }
 }
+

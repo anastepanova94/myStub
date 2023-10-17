@@ -30,9 +30,9 @@ public class MyController {
         if (user == null) {
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("No such user");
         }
-//        if (!file.exists()) {
-//            file.createNewFile();
-//        }
+        if (!file.exists()) {
+            file.createNewFile();
+        }
         try (FileWriter writer = new FileWriter(file, true)){
             ObjectMapper mapper = JsonMapper.builder()
                             .addModule(new JavaTimeModule())

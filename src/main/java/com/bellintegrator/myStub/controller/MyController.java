@@ -22,7 +22,7 @@ import java.util.stream.Stream;
 @RequestMapping("/user")
 public class MyController {
     private final UserRepository userRepository;
-    private File file = new File("C:\\Users\\79252\\Desktop\\study_nastya\\NT\\myStub\\src\\main\\resources\\output.txt");
+    private File file = new File("src/main/resources/output.txt");
 
     @GetMapping
     public ResponseEntity<?> getMessage(@RequestParam String login) throws SQLException {

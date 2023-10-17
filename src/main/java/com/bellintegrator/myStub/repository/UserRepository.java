@@ -39,7 +39,7 @@ public class UserRepository {
         }
         return user;
     }
-// вынести в переменную запрос
+
     public String insertUser(User user) throws SQLException {
         int count = 0;
         String request = "INSERT INTO users (login, email) VALUES(?, ?);" +
@@ -55,8 +55,10 @@ public class UserRepository {
             count = statement.executeUpdate();
             return "updated rows " + count;
         } catch (SQLException e) {
+
             return e.getMessage();
         }
     }
+
 
 }

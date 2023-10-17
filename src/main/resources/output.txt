@@ -1,0 +1,6 @@
+{"login":"semenovaev","password":"qwerty","email":"semenovaev.gmail.com","date":[2020,3,28]}
+{"login":"smirnuv","password":"123qwerty","email":"semenuv@list.ru","date":[2023,10,12]}
+{"login":"nemova","password":"12345","email":"nemova@list.ru","date":[2022,5,30]}
+{"login":"nemova","password":"12345","email":"nemova@list.ru","date":[2022,5,30]}
+{"login":"haustovam","password":"123455","email":"mari.haustova@mail.ru","date":[2023,10,5]}
+{"login":"aastepanova","password":"12345","email":"aastepanova@yandex.ru","date":[2023,8,10]}

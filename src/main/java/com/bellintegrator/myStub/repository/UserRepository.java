@@ -8,8 +8,8 @@ import java.time.LocalDate;
 @Repository
 public class UserRepository {
 
-    private String jdbcurl = "jdbc:postgresql://127.0.0.1:5432/users";
-//    private String jdbcurl = "jdbc:postgresql://postgres:5432/users";
+//    private String jdbcurl = "jdbc:postgresql://127.0.0.1:5432/users";
+    private String jdbcurl = "jdbc:postgresql://postgres:5432/users";
     private String userName = "admin";
     private String userLogin = "pass";
 

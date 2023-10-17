@@ -22,14 +22,17 @@ import java.util.stream.Stream;
 @RequestMapping("/user")
 public class MyController {
     private final UserRepository userRepository;
-    private File file = new File("src/main/resources/output.txt");
+    private File file = new File("src/main/java/com/bellintegrator/myStub/output.txt");
 
     @GetMapping
-    public ResponseEntity<?> getMessage(@RequestParam String login) throws SQLException {
+    public ResponseEntity<?> getMessage(@RequestParam String login) throws SQLException, IOException {
         User user = userRepository.selectUser(login);
         if (user == null) {
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("No such user");
         }
+//        if (!file.exists()) {
+//            file.createNewFile();
+//        }
         try (FileWriter writer = new FileWriter(file, true)){
             ObjectMapper mapper = JsonMapper.builder()
                             .addModule(new JavaTimeModule())

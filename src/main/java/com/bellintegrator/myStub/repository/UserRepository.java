@@ -1,6 +1,7 @@
 package com.bellintegrator.myStub.repository;
 import com.bellintegrator.myStub.model.User;
 import org.springframework.stereotype.Repository;
+import org.springframework.stereotype.Service;
 
 import java.sql.*;
 import java.time.LocalDate;
@@ -8,8 +9,8 @@ import java.time.LocalDate;
 @Repository
 public class UserRepository {
 
-//    private String jdbcurl = "jdbc:postgresql://127.0.0.1:5432/users";
-    private String jdbcurl = "jdbc:postgresql://postgres:5432/users";
+    private String jdbcurl = "jdbc:postgresql://127.0.0.1:5432/users";
+//    private String jdbcurl = "jdbc:postgresql://postgres:5432/users";
     private String userName = "admin";
     private String userLogin = "pass";
 
@@ -40,7 +41,7 @@ public class UserRepository {
         return user;
     }
 
-    public String insertUser(User user) throws SQLException {
+    public String insertUser(User user) {
         int count = 0;
         String request = "INSERT INTO users (login, email) VALUES(?, ?);" +
                 "INSERT INTO auth (login, password, date) VALUES(?, ?, ?);";

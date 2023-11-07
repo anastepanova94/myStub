@@ -15,9 +15,10 @@ import java.util.stream.Stream;
 @Component
 public class FileUtil {
 
-    private File file = new File("output.txt");
+//    private File file = new File("output.txt");
+//    private File testTopicFile = new File("testTopic.txt");
 
-    public void writeToFile (User user) throws IOException {
+    public void writeToFile (User user, File file) throws IOException {
         if (!file.exists()) {
             file.createNewFile();
         }
@@ -32,7 +33,7 @@ public class FileUtil {
         }
     }
 
-    public String getRandomLine () {
+    public String getRandomLine (File file) {
         int countLines = 0;
         try (FileReader reader = new FileReader(file);
              LineNumberReader lineNumber = new LineNumberReader(reader)){
@@ -47,5 +48,18 @@ public class FileUtil {
             e.printStackTrace();
         }
         return null;
+    }
+
+    public String getAllLines(File file) {
+        String res = "";
+        try (BufferedReader br = new BufferedReader(new FileReader(file))) {
+            String line;
+            while ((line = br.readLine()) != null) {
+                res += line + "\n";
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return res;
     }
 }

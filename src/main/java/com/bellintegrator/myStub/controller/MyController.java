@@ -8,12 +8,15 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.io.File;
 import java.io.IOException;
 import java.sql.SQLException;
 
 @RestController
 @RequestMapping("/user")
 public class MyController {
+    private File fileOutput = new File("output.txt");
+    private File testTopicFile = new File("testTopicFile.txt");
 
     @Autowired
     private UserRepository userRepository;
@@ -28,7 +31,7 @@ public class MyController {
         if (user.getLogin() == null) {
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("No such user");
         }
-        fileUtil.writeToFile(user);
+        fileUtil.writeToFile(user, fileOutput);
         return ResponseEntity.status(HttpStatus.OK)
                 .body(user);
     }
@@ -49,8 +52,11 @@ public class MyController {
 
     @GetMapping("/readFile")
     public String readFile() {
-        return fileUtil.getRandomLine();
+        return fileUtil.getRandomLine(fileOutput);
     }
 
-
+    @GetMapping("/showTestTopicFile")
+    public String showTestTopicFile() {
+        return fileUtil.getAllLines(testTopicFile);
+    }
 }

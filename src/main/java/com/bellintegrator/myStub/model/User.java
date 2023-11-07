@@ -15,6 +15,7 @@ public class User {
     private String password;
     private String email;
     private LocalDate date = LocalDate.now();
+    private String status;
 
     public User(String login) {
         this.login = login;
@@ -29,10 +30,11 @@ public class User {
 
     @Override
     public String toString() {
-        return "login='" + login + '\'' +
-                ", password='" + password + '\'' +
-                ", email='" + email + '\'' +
-                ", date=" + date;
+        return "{\"login\":\"" + login + '\"' +
+                ", \"password\":\"" + password + '\"' +
+                ", \"email\":\"" + email + '\"' +
+                ", \"date\":\"" + date +
+                ", \"status\":\"" + status +"\"}";
     }
 }
 
